@@ -31,7 +31,7 @@ function createSingleIndex(contact) {
 function renderIndex(contactList) {
     let classMain = document.querySelector('.main')
     for (let i = 0; i < contactList.length; i++) {
-        classMain.insertAdjacentHTML('beforeend', createSingleIndex(contactList[i]))
+        classMain.appendChild(createSingleIndex(contactList[i]))
     }
 }
 
@@ -71,6 +71,11 @@ function renderView(contactList) { // utilizes the sample contactList to show it
         <button class="button close" value="Close">Close</button>
     </div>`
     contactInfo.insertAdjacentHTML('beforeend', viewButtons)
+
+	document.querySelector('.button.close').addEventListener('click', listenerContact)
+	document.querySelector('.button.edit').addEventListener('click', (evt) => {
+		evt.preventDefault()
+	})
 }
 
 
@@ -112,6 +117,7 @@ function renderCreate() {
 			</form>
 		</div>	
 	</div>`
+
 	classMain.insertAdjacentHTML('afterbegin', editContact)
 
 	let createContent = document.querySelector('form')
