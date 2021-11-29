@@ -126,9 +126,19 @@ const contactList = [
 	}
 ]
 
-// Event Listener functions (2) //
+// Event Listener functions (2 & 3) //
 function listenerContact(evt) {
 	evt.preventDefault()
 	cleanUpIndex()
 	renderIndex(contactList)
 } 
+
+document.querySelector('#contactshome').addEventListener('click', listenerContact)
+
+function listenerCreate(evt) {
+	evt.preventDefault()
+	cleanUpIndex()
+	renderCreate()
+}
+
+document.querySelector('#newcontact').addEventListener('click', listenerCreate)
