@@ -131,6 +131,8 @@ function renderCreate() {
 		<button type="reset" class="button cancel" id="cancel" name="cancel">Cancel</button>
 	</div>`
 	createContent.insertAdjacentHTML('beforeend', createButtons)
+
+	document.querySelector('#cancel').addEventListener('click', listenerContact)
 }
 
 
