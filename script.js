@@ -125,3 +125,10 @@ const contactList = [
 		email: "greenlantern@watchtower.com",  
 	}
 ]
+
+// Event Listener functions (2) //
+function listenerContact(evt) {
+	evt.preventDefault()
+	cleanUpIndex()
+	renderIndex(contactList)
+} 
