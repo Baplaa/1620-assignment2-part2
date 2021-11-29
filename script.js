@@ -7,7 +7,25 @@ function cleanUpIndex() {
 }
 
 function createSingleIndex(contact) {
-    return `<a href="page3.html"><div class="contact">${contact.name}</div></a>`
+    let index_div = document('div')
+	index_div.className = 'contact'
+
+	let index_text = document.createTextNode(`${contact.name}`)
+	index_div.appendChild(index_text)
+
+	index_div.addEventListener('click', (evt) => {
+		evt.preventDefault()
+		contactName = evt.target.textContent
+
+		for (let i = 0; i < contactList.length; i++) {
+			if (contactList[i].name == contactName) {
+				cleanUpIndex()
+				renderView(contactList[i])
+			}
+		}
+	})
+
+	return index_div
 }
 
 function renderIndex(contactList) {
