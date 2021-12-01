@@ -150,6 +150,12 @@ function renderCreate() {
 	createContent.insertAdjacentHTML('beforeend', createButtons)
 
 	document.querySelector('#cancel').addEventListener('click', listenerContact)
+	
+	document.querySelectorAll('.inputcontainer button').forEach(item => {
+		item.addEventListener('click',  evt => {
+		    evt.preventDefault()
+		})
+	    })
 
 	document.querySelector('#savecontact').addEventListener('click', (evt) => {
 		evt.preventDefault()
