@@ -1,3 +1,19 @@
+// I used the sample contactList, very cool Jeremy! //
+const contactList = [  
+	{ 
+		name: "Oliver Queen", 
+		phone: "778-555-1234", 
+		address: "101 Main St, Star City, USA",    
+		email: "greenarrow@watchtower.com",  
+	},
+    {    
+		name: "Jessica Cruz",    
+		phone: "123-555-5555",    
+		address: "Portland Oregon",    
+		email: "greenlantern@watchtower.com",  
+	}
+]
+
 // Index Page JS //
 function cleanUpIndex() {
     let classMain = document.querySelector('.main')
@@ -7,10 +23,11 @@ function cleanUpIndex() {
 }
 
 function createSingleIndex(contact) {
-    let index_div = document('div')
+    let index_div = document.createElement('div')
 	index_div.className = 'contact'
 
 	let index_text = document.createTextNode(`${contact.name}`)
+
 	index_div.appendChild(index_text)
 
 	index_div.addEventListener('click', (evt) => {
@@ -44,7 +61,7 @@ function cleanUpView() {
     }
 }
 
-function renderView(contactList) { // utilizes the sample contactList to show it works; I had this as "contact"
+function renderView(contact) {
     let classMain = document.querySelector('.main')
 
     classMain.insertAdjacentHTML('afterbegin', `<div class='contactinfo'></div>`)
@@ -55,10 +72,10 @@ function renderView(contactList) { // utilizes the sample contactList to show it
 
     let contactType = ['name', 'email', 'phone', 'address']
     let pushedContent = []
-    pushedContent.push(`<div class="contact${contactType[0]}">${contactList[0][contactType[0]]}</div>`) // *would have been just "contact"
+    pushedContent.push(`<div class="contact${contactType[0]}">${contact[contactType[0]]}</div>`)
 
     for (let i = 1; i <= 3; i++) {
-        pushedContent.push(`<div class="contact${contactType[i]}">${contactType[i]}: ${contactList[0][contactType[i]]}</div>`) // *prev comment
+        pushedContent.push(`<div class="contact${contactType[i]}">${contactType[i]}: ${contact[contactType[i]]}</div>`)
     }
 
     for (let i = 0; i <= 3; i++) {
@@ -145,27 +162,10 @@ function renderCreate() {
 		contactList.push(obj_key)
 
 		cleanUpIndex()
-		renderView(obj)
+		renderView(obj_key)
 	})
 
 }
-
-
-// I used the sample contactList, very cool Jeremy! //
-const contactList = [  
-	{ 
-		name: "Oliver Queen", 
-		phone: "778-555-1234", 
-		address: "101 Main St, Star City, USA",    
-		email: "greenarrow@watchtower.com",  
-	},
-    {    
-		name: "Jessica Cruz",    
-		phone: "123-555-5555",    
-		address: "Portland Oregon",    
-		email: "greenlantern@watchtower.com",  
-	}
-]
 
 // Event Listener functions (2 & 3) //
 function listenerContact(evt) {
