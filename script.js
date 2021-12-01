@@ -133,6 +133,21 @@ function renderCreate() {
 	createContent.insertAdjacentHTML('beforeend', createButtons)
 
 	document.querySelector('#cancel').addEventListener('click', listenerContact)
+
+	document.querySelector('#savecontact').addEventListener('click', (evt) => {
+		evt.preventDefault()
+		let obj_key = {}
+		obj_key.name = document.querySelector('#contactname').value
+		obj_key.phone = document.querySelector('#contactphone').value
+		obj_key.address = document.querySelector('#contactnaddress').value
+		obj_key.email = document.querySelector('#contactemail').value
+
+		console.log(contactList.push(obj_key))
+
+		cleanUpIndex()
+		console.log(renderView(obj))
+	})
+
 }
 
 
