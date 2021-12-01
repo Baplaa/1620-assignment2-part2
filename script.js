@@ -142,10 +142,10 @@ function renderCreate() {
 		obj_key.address = document.querySelector('#contactaddress').value
 		obj_key.email = document.querySelector('#contactemail').value
 
-		console.log(contactList.push(obj_key))
+		contactList.push(obj_key)
 
 		cleanUpIndex()
-		console.log(renderView(obj))
+		renderView(obj)
 	})
 
 }
