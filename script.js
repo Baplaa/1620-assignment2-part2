@@ -183,3 +183,5 @@ function listenerCreate(evt) {
 }
 
 document.querySelector('#newcontact').addEventListener('click', listenerCreate)
+
+document.addEventListener('DOMContentLoaded', renderIndex(contactList))
